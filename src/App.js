@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Mail from "./components/Mail/Mail";
 import EmailList from "./components/EmailList/EmailList";
 import SendMail from "./components/SendMail/SendMail";
@@ -40,13 +40,18 @@ function App() {
           <Header />
           <div className="app-body">
             <Sidebar emails={emails} />
-            <Switch>
+ <Switch>
+
+              <Route path="/mail" component={Mail} />
+              <Route exact path="/" component={() => <EmailList emails={emails} />} />
+
               <Route path="/mail">
                 <Mail />
               </Route>
               <Route path="/" exact>
                 <EmailList emails={emails} />
               </Route>
+
             </Switch>
           </div>
 

@@ -40,19 +40,11 @@ function App() {
           <Header />
           <div className="app-body">
             <Sidebar emails={emails} />
- <Switch>
+<Switch>
+  <Route path="/mail" component={Mail} />
+  <Route exact path="/" component={() => <EmailList emails={emails} />} />
+</Switch>
 
-              <Route path="/mail" component={Mail} />
-              <Route exact path="/" component={() => <EmailList emails={emails} />} />
-
-              <Route path="/mail">
-                <Mail />
-              </Route>
-              <Route path="/" exact>
-                <EmailList emails={emails} />
-              </Route>
-
-            </Switch>
           </div>
 
           {sendMessageIsOpen && <SendMail />}

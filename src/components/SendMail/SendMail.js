@@ -12,7 +12,7 @@ function SendMail() {
   const {
     register,
     handleSubmit,
-    watch,
+    
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
